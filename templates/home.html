@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews and Comments</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <main class="maincontainer">
+        <section>
+            <a href="{% url 'add_remark' %}" class="uploadreviewbutton">Upload Review</a>
+        </section>
+
+        <section class="albumcontainer">
+            {% for remark in object_list %}
+            <div class="card">
+                <p class="cardtitle">{{remark.title}}</p>
+                <div class="cardinformation">
+                    <p>{{remark.rating}}</p>
+                    <p>{{remark.comments}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>
